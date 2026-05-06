@@ -20,9 +20,13 @@ WORKDIR /var/www/html
 # Copy entire project
 COPY . .
 
-# Install PHP dependencies
+# Create required Laravel directories before composer install
 WORKDIR /var/www/html/core
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+RUN mkdir -p bootstrap/cache storage/framework/sessions storage/framework/cache/data storage/framework/views storage/logs storage/app
+
+# Install PHP dependencies (--no-scripts to avoid package:discover failure before dirs exist)
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts \
+    && php artisan package:discover --ansi || true
 
 # Set Laravel storage permissions
 RUN chmod -R 775 storage bootstrap/cache \
