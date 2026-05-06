@@ -4,8 +4,8 @@ FROM php:8.2-apache
 # System dependencies
 RUN apt-get update && apt-get install -y \
     git curl zip unzip libzip-dev libpng-dev libonig-dev \
-    libxml2-dev libssl-dev libcurl4-openssl-dev \
-    && docker-php-ext-install pdo pdo_mysql mbstring zip gd xml curl \
+    libxml2-dev libssl-dev libcurl4-openssl-dev libpq-dev \
+    && docker-php-ext-install pdo pdo_mysql pdo_pgsql pgsql mbstring zip gd xml curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Enable Apache mod_rewrite
