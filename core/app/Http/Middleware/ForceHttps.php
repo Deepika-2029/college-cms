@@ -8,7 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * ForceHttps — redirects HTTP → HTTPS in production.
- * Skipped on localhost, 0.0.0.0, and 127.x.x.x so Termux `php artisan serve` works.
+ * Skipped on localhost and when behind a trusted proxy (e.g. Render.com)
+ * that terminates SSL and forwards X-Forwarded-Proto: https.
  */
 class ForceHttps
 {
@@ -24,7 +25,11 @@ class ForceHttps
                 || str_ends_with($host, '.test')
                 || app()->environment('local', 'testing');
 
-        if (! $isLocal && ! $request->isSecure()) {
+        // Check X-Forwarded-Proto for proxy environments like Render.com
+        // Render terminates HTTPS at its load balancer and forwards HTTP internally
+        $isHttpsViaProxy = $request->header('X-Forwarded-Proto') === 'https';
+
+        if (! $isLocal && ! $isHttpsViaProxy && ! $request->isSecure()) {
             return redirect()->secure($request->getRequestUri(), 301);
         }
 

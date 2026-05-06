@@ -86,10 +86,14 @@ DirectoryIndex index.html index.php
 
 # ══════════════════════════════════════════════════════════════════════════
 # LAYER 3 — HTTPS ENFORCEMENT
+# NOTE: On Render.com, HTTPS is terminated at the load balancer.
+# Apache sees HTTP internally, but X-Forwarded-Proto: https is set.
+# We skip the redirect if X-Forwarded-Proto is already https.
 # ══════════════════════════════════════════════════════════════════════════
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
     RewriteCond %{HTTP_HOST} !^localhost [NC]
     RewriteCond %{HTTP_HOST} !^127\.0\.0\.1
     RewriteCond %{REMOTE_ADDR} !^127\.0\.0\.1
