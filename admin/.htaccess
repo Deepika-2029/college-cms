@@ -1,0 +1,12 @@
+# College CMS — Admin directory shim for LiteSpeed/Apache shared hosting.
+# LiteSpeed returns 404 for /admin/* without a physical directory.
+# We rewrite everything to the root index.php; SCRIPT_NAME is fixed in entry.php.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ /index.php [L]
+</IfModule>
+# No PHP execution here — the real admin is handled by Laravel
+<FilesMatch "\.php$">
+    Require all denied
+</FilesMatch>

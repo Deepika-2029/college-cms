@@ -1,0 +1,213 @@
+.about {
+  padding: 60px 10%;
+  background: #0d1931;
+}
+
+.about-title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+.about-title span {
+  color: #2f6df6;
+}
+.about-container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+/* Image */
+.about-image img {
+  width: 350px;
+  border-radius: 15px;
+}
+
+/* Content */
+.about-content {
+  flex: 1;
+}
+
+.intro {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Info Boxes */
+.info-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.info-box span {
+  font-size: 20px;
+}
+
+.info-box p {
+  margin: 0;
+}
+
+/* Goal Text */
+.goal {
+  margin-top: 20px;
+  color: hsl(0, 0%, 100%);
+}
+
+/* Button */
+.btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  background: linear-gradient(135deg, #2f6df6, #4facfe);
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+}
+./* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+  .about {
+    padding: 50px 5%;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 280px;
+  }
+
+  .about-title {
+    font-size: 32px;
+  }
+
+  .intro {
+    font-size: 15px;
+  }
+
+  .goal {
+    font-size: 15px;
+  }
+
+  .info-box {
+    justify-content: center;
+    text-align: left;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .about {
+    padding: 40px 20px;
+  }
+
+  .about-title {
+    font-size: 26px;
+  }
+
+  .about-container {
+    gap: 20px;
+  }
+
+  .about-image img {
+    width: 220px;
+    border-radius: 12px;
+  }
+
+  .intro {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .goal {
+    font-size: 14px;
+  }
+
+  .info-box {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .info-box span {
+    font-size: 18px;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+/* ================= RESPONSIVE COLUMN LAYOUT ================= */
+
+/* Tablet + Mobile (single column) */
+@media (max-width: 992px) {
+
+  .about-container {
+    flex-direction: column;   /* 🔥 main change */
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-image img {
+    width: 260px;
+  }
+
+  .about-content {
+    width: 100%;
+  }
+
+  .info-box {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+/* Mobile fine tuning */
+@media (max-width: 600px) {
+
+  .about {
+    padding: 40px 20px;
+  }
+
+  .about-title {
+    font-size: 26px;
+  }
+
+  .about-image img {
+    width: 220px;
+  }
+
+  .intro,
+  .goal {
+    font-size: 14px;
+  }
+
+  .info-box {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,249 @@
+/* ── Site Identity Page Styles ────────────────────────────────────────────── */
+
+.identity-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .identity-grid {
+        grid-template-columns: 1fr;
+    }
+    .identity-nav {
+        position: static !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: .35rem;
+    }
+}
+
+/* Sticky sidebar nav */
+.identity-nav {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    position: sticky;
+    top: 80px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: .75rem;
+}
+
+.identity-nav a {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .55rem .875rem;
+    border-radius: var(--r);
+    font-size: .8125rem;
+    font-weight: 500;
+    color: var(--text-2);
+    text-decoration: none;
+    transition: background .15s, color .15s;
+}
+
+.identity-nav a:hover {
+    background: var(--surface-2);
+    color: var(--text);
+}
+
+.identity-nav a.active {
+    background: var(--accent-bg, rgba(var(--accent-rgb),.12));
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Section cards */
+.section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.section-header h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 .1rem;
+}
+
+.section-header p {
+    font-size: .8rem;
+    color: var(--text-3);
+    margin: 0;
+}
+
+.section-body {
+    padding: 1.5rem;
+}
+
+/* Two-column row */
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+    .field-row { grid-template-columns: 1fr; }
+}
+
+/* Branding pickers - 3 columns */
+.branding-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 140px;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+@media (max-width: 780px) {
+    .branding-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .branding-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Logo placeholder box */
+.logo-placeholder {
+    height: 60px;
+    width: 100%;
+    max-width: 180px;
+    background: var(--surface-2);
+    border-radius: var(--r);
+    border: 2px dashed var(--border-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-4);
+    margin-bottom: .75rem;
+}
+
+.favicon-placeholder {
+    width: 60px;
+    height: 60px;
+    background: var(--surface-2);
+    border-radius: var(--r-sm);
+    border: 2px dashed var(--border-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-4);
+    margin-bottom: .75rem;
+}
+
+/* Global Tokens panel */
+.token-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: .75rem;
+    margin-top: 1rem;
+}
+
+.token-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: .75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.token-tag {
+    font-family: 'Courier New', monospace;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-bg, rgba(var(--accent-rgb),.1));
+    padding: .2rem .5rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: opacity .15s;
+    user-select: all;
+    white-space: nowrap;
+}
+
+.token-tag:hover {
+    opacity: .8;
+}
+
+.token-value {
+    font-size: .78rem;
+    color: var(--text-3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+}
+
+.token-copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-3);
+    padding: .2rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: color .15s, background .15s;
+}
+
+.token-copy-btn:hover {
+    color: var(--accent);
+    background: var(--accent-bg, rgba(var(--accent-rgb),.1));
+}
+
+/* Empty state for tokens */
+.token-empty {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-3);
+    font-size: .875rem;
+}
+
+/* Social icon label */
+.social-label {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+/* Save bar */
+.identity-save-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: var(--surface);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--r-xl);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    align-items: center;
+}

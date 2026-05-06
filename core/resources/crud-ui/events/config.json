@@ -1,0 +1,109 @@
+{
+    "table": "events",
+    "label": "Events",
+    "ui_type": "list",
+    "drag_order": [
+        "id",
+        "title",
+        "type",
+        "event_date",
+        "venue",
+        "organizer",
+        "description",
+        "image_url",
+        "file_url",
+        "video_url",
+        "created_at"
+    ],
+    "columns": [
+        {
+            "name": "id",
+            "label": "Id",
+            "field_type": "system",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": false
+        },
+        {
+            "name": "title",
+            "label": "Title",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "type",
+            "label": "Type",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "event_date",
+            "label": "Event Date",
+            "field_type": "date",
+            "show_in_list": true,
+            "searchable": false,
+            "editable": true
+        },
+        {
+            "name": "venue",
+            "label": "Venue",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "organizer",
+            "label": "Organizer",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "description",
+            "label": "Description",
+            "field_type": "textarea",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": true
+        },
+        {
+            "name": "image_url",
+            "label": "Image Url",
+            "field_type": "image",
+            "show_in_list": true,
+            "searchable": false,
+            "editable": true
+        },
+        {
+            "name": "file_url",
+            "label": "File Url",
+            "field_type": "document",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": true
+        },
+        {
+            "name": "video_url",
+            "label": "Video Url",
+            "field_type": "document",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": true
+        },
+        {
+            "name": "created_at",
+            "label": "Created At",
+            "field_type": "system",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": false
+        }
+    ],
+    "created_at": "2026-05-05 06:05:58"
+}

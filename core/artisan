@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+// Suppress PHP 8.4+ deprecation notices from vendor code (PDO::MYSQL_ATTR_SSL_CA etc.)
+// This is safe — deprecations are notices, not errors. The actual behavior is unchanged.
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
+use Symfony\Component\Console\Input\ArgvInput;
+
+define('LARAVEL_START', microtime(true));
+
+require __DIR__.'/vendor/autoload.php';
+
+$app = require_once __DIR__.'/bootstrap/app.php';
+
+exit($app->handleCommand(new ArgvInput));

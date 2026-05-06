@@ -1,0 +1,41 @@
+<!-- Auto-generated List Template for: workshop -->
+<div class="cms-ui-wrapper cms-fade-in" id="cms-workshop-list">
+    <div class="cms-ui-header">
+        <div class="cms-ui-title-group">
+            <h2>Workshop</h2>
+            <p>Manage all records in your Workshop database.</p>
+        </div>
+        <button class="cms-btn cms-btn-primary" onclick="openCreateForm()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add New Record
+        </button>
+    </div>
+    <div class="cms-glass-card">
+        <div class="table-responsive">
+            <table class="cms-modern-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Department</th>
+                        <th>Tools</th>
+                        <th>Capacity</th>
+                        <th>Incharge</th>
+                        <th>Image Url</th>
+                        <th class="actions-cell">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Backend populates rows — each row uses the cell logic above -->
+                    <!-- cell-logic-hint:
+                        <td data-col="title">{{row.title}}</td>
+                        <td data-col="department">{{row.department}}</td>
+                        <td data-col="tools">{{row.tools}}</td>
+                        <td data-col="capacity">{{row.capacity}}</td>
+                        <td data-col="incharge">{{row.incharge}}</td>
+                        <td data-col="image_url"><img src="{{row.image_url}}" alt="" style="width:48px;height:48px;object-fit:cover;border-radius:6px;" loading="lazy"></td>
+                    -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

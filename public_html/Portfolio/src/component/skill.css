@@ -1,0 +1,94 @@
+.skills {
+  padding: 60px 10%;
+  background: linear-gradient(135deg, #020617, #020c1b);  
+  text-align: center;
+}
+
+.skills-title {
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.skills-title span {
+  color: #ffffff;
+}
+
+/* Grid */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+/* Card */
+.skill-card {
+  background: #dcf2ff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  position: relative;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Icon */
+.skill-card img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+/* Title */
+.skill-card h3 {
+  margin: 10px 0;
+}
+
+/* Progress bar */
+.progress {
+  background: #eee;
+  border-radius: 10px;
+  height: 8px;
+  margin: 10px 0;
+}
+
+.progress-bar {
+  height: 8px;
+  border-radius: 10px;
+}
+
+/* Colors */
+.html {
+  width: 90%;
+  background: linear-gradient(90deg, #ff7a59, #ff3d00);
+}
+
+.css {
+  width: 85%;
+  background: linear-gradient(90deg, #4facfe, #007bff);
+}
+
+.js {
+  width: 80%;
+  background: linear-gradient(90deg, #f7df1e, #ffb300);
+}
+
+.react {
+  width: 75%;
+  background: linear-gradient(90deg, #61dafb, #00bcd4);
+}
+
+.tailwind {
+  width: 70%;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+}
+
+/* Percentage */
+.skill-card span {
+  font-size: 14px;
+  color: #555;
+}
+.skill-img{
+  height:40%;
+}

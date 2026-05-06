@@ -1,0 +1,49 @@
+{
+    "topbar": [],
+    "mainnav": [
+        {
+            "title": "Home",
+            "url": "\/"
+        },
+        {
+            "title": "About",
+            "url": "\/about"
+        },
+        {
+            "title": "Contact",
+            "url": "\/contact"
+        }
+    ],
+    "menu": [
+        {
+            "title": "Home",
+            "url": "\/"
+        },
+        {
+            "title": "About",
+            "url": "\/about"
+        },
+        {
+            "title": "Contact",
+            "url": "\/contact"
+        }
+    ],
+    "footernav": [],
+    "settings": {
+        "site_name": "My College",
+        "tagline": "",
+        "sticky": "true",
+        "bg_color": "#1e293b",
+        "topbar_bg": "#0f172a",
+        "accent_color": "#6366f1",
+        "text_color": "#ffffff",
+        "show_admin_btn": "true",
+        "admin_btn_text": "Admin",
+        "btn1_text": "",
+        "btn1_url": "",
+        "btn1_style": "primary",
+        "btn2_text": "",
+        "btn2_url": "",
+        "btn2_style": "outline"
+    }
+}

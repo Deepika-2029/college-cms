@@ -1,0 +1,55 @@
+{
+    "table": "download",
+    "label": "Download",
+    "ui_type": "list",
+    "drag_order": [
+        "id",
+        "title",
+        "file",
+        "category",
+        "date"
+    ],
+    "columns": [
+        {
+            "name": "id",
+            "label": "Id",
+            "field_type": "system",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": false
+        },
+        {
+            "name": "title",
+            "label": "Title",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "file",
+            "label": "File",
+            "field_type": "document",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": true
+        },
+        {
+            "name": "category",
+            "label": "Category",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "date",
+            "label": "Date",
+            "field_type": "date",
+            "show_in_list": true,
+            "searchable": false,
+            "editable": true
+        }
+    ],
+    "created_at": "2026-05-05 06:06:06"
+}

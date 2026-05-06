@@ -1,0 +1,5 @@
+.key-row td{vertical-align:middle;}
+.api-key-cell{font-family:monospace;font-size:.8rem;color:#475569;background:var(--text);padding:.2rem .5rem;border-radius:5px;border:1px solid var(--text);}
+.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(15,23,42,.5);backdrop-filter:blur(4px);z-index:5000;align-items:center;justify-content:center;}
+.modal-backdrop.open{display:flex;}
+.modal-box{background:#fff;border-radius:14px;padding:1.75rem;width:100%;max-width:480px;box-shadow:0 20px 60px rgba(0,0,0,.25);}

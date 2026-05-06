@@ -1,0 +1,111 @@
+<!-- Auto-generated Form Template for: events -->
+<div class="cms-ui-wrapper cms-fade-in" id="cms-events-form" style="display:none;">
+    <div class="cms-ui-header">
+        <div class="cms-ui-title-group">
+            <h2 id="form-title">Create New Event</h2>
+            <p>Fill out the details below to add or update a record.</p>
+        </div>
+        <button class="cms-btn cms-btn-ghost" onclick="closeForm()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back to List
+        </button>
+    </div>
+    <div class="cms-glass-card">
+        <form class="cms-modern-form" onsubmit="handleFormSubmit(event)">
+            <div class="cms-form-grid">
+
+                <div class="cms-form-group">
+                    <label for="f_title">Title</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="title" id="f_title" class="cms-form-control" placeholder="Enter Title...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_type">Type</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="type" id="f_type" class="cms-form-control" placeholder="Enter Type...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_event_date">Event Date</label>
+                    <div class="cms-input-wrapper">
+                    <input type="datetime-local" name="event_date" id="f_event_date" class="cms-form-control">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_venue">Venue</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="venue" id="f_venue" class="cms-form-control" placeholder="Enter Venue...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_organizer">Organizer</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="organizer" id="f_organizer" class="cms-form-control" placeholder="Enter Organizer...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_description">Description</label>
+                    <div class="cms-input-wrapper">
+                    <textarea name="description" id="f_description" class="cms-form-control" rows="4" placeholder="Enter Description..."></textarea>
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_image_url">Image Url</label>
+                    <div class="cms-input-wrapper">
+                    <div class="cms-media-field" data-col="image_url" data-accept="image/*">
+                        <div class="cms-media-preview" id="prev_image_url"></div>
+                        <div class="cms-media-actions">
+                            <button type="button" class="cms-btn cms-btn-sm" onclick="openMediaPicker('image_url','image')">📷 Upload / Pick</button>
+                            <button type="button" class="cms-btn cms-btn-sm cms-btn-ghost" onclick="addMediaUrl('image_url')">🔗 Add URL</button>
+                        </div>
+                        <input type="hidden" name="image_url" id="f_image_url">
+                    </div>
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_file_url">File Url</label>
+                    <div class="cms-input-wrapper">
+                    <div class="cms-media-field" data-col="file_url" data-accept="*">
+                        <div class="cms-media-preview" id="prev_file_url"></div>
+                        <div class="cms-media-actions">
+                            <button type="button" class="cms-btn cms-btn-sm" onclick="openMediaPicker('file_url','all')">📎 Upload / Pick</button>
+                            <button type="button" class="cms-btn cms-btn-sm cms-btn-ghost" onclick="addMediaUrl('file_url')">🔗 Add URL</button>
+                        </div>
+                        <input type="hidden" name="file_url" id="f_file_url">
+                    </div>
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_video_url">Video Url</label>
+                    <div class="cms-input-wrapper">
+                    <div class="cms-media-field" data-col="video_url" data-accept="*">
+                        <div class="cms-media-preview" id="prev_video_url"></div>
+                        <div class="cms-media-actions">
+                            <button type="button" class="cms-btn cms-btn-sm" onclick="openMediaPicker('video_url','all')">📎 Upload / Pick</button>
+                            <button type="button" class="cms-btn cms-btn-sm cms-btn-ghost" onclick="addMediaUrl('video_url')">🔗 Add URL</button>
+                        </div>
+                        <input type="hidden" name="video_url" id="f_video_url">
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cms-form-actions">
+                <button type="button" class="cms-btn cms-btn-light" onclick="closeForm()">Cancel</button>
+                <button type="submit" class="cms-btn cms-btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    Save Record
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

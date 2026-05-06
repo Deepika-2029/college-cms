@@ -1,0 +1,8 @@
+/* Playfair Display — Self-hosted, zero CDN. Source: fonts.google.com/specimen/Playfair+Display */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/admin-vendor/fonts/playfair/playfair-700.ttf') format('truetype');
+}

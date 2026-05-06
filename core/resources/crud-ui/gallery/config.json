@@ -1,0 +1,46 @@
+{
+    "table": "gallery",
+    "label": "Gallery",
+    "ui_type": "list",
+    "drag_order": [
+        "id",
+        "title",
+        "image",
+        "category"
+    ],
+    "columns": [
+        {
+            "name": "id",
+            "label": "Id",
+            "field_type": "system",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": false
+        },
+        {
+            "name": "title",
+            "label": "Title",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "image",
+            "label": "Image",
+            "field_type": "image",
+            "show_in_list": true,
+            "searchable": false,
+            "editable": true
+        },
+        {
+            "name": "category",
+            "label": "Category",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        }
+    ],
+    "created_at": "2026-05-05 06:06:07"
+}

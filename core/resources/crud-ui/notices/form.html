@@ -1,0 +1,90 @@
+<!-- Auto-generated Form Template for: notices -->
+<div class="cms-ui-wrapper cms-fade-in" id="cms-notices-form" style="display:none;">
+    <div class="cms-ui-header">
+        <div class="cms-ui-title-group">
+            <h2 id="form-title">Create New Notice</h2>
+            <p>Fill out the details below to add or update a record.</p>
+        </div>
+        <button class="cms-btn cms-btn-ghost" onclick="closeForm()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back to List
+        </button>
+    </div>
+    <div class="cms-glass-card">
+        <form class="cms-modern-form" onsubmit="handleFormSubmit(event)">
+            <div class="cms-form-grid">
+
+                <div class="cms-form-group">
+                    <label for="f_title">Title</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="title" id="f_title" class="cms-form-control" placeholder="Enter Title...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_description">Description</label>
+                    <div class="cms-input-wrapper">
+                    <textarea name="description" id="f_description" class="cms-form-control" rows="4" placeholder="Enter Description..."></textarea>
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_category">Category</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="category" id="f_category" class="cms-form-control" placeholder="Enter Category...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_publisher">Publisher</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="publisher" id="f_publisher" class="cms-form-control" placeholder="Enter Publisher...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_publish_date">Publish Date</label>
+                    <div class="cms-input-wrapper">
+                    <input type="datetime-local" name="publish_date" id="f_publish_date" class="cms-form-control">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_file_url">File Url</label>
+                    <div class="cms-input-wrapper">
+                    <div class="cms-media-field" data-col="file_url" data-accept="*">
+                        <div class="cms-media-preview" id="prev_file_url"></div>
+                        <div class="cms-media-actions">
+                            <button type="button" class="cms-btn cms-btn-sm" onclick="openMediaPicker('file_url','all')">📎 Upload / Pick</button>
+                            <button type="button" class="cms-btn cms-btn-sm cms-btn-ghost" onclick="addMediaUrl('file_url')">🔗 Add URL</button>
+                        </div>
+                        <input type="hidden" name="file_url" id="f_file_url">
+                    </div>
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_is_active">Is Active</label>
+                    <div class="cms-input-wrapper">
+                    <div class="cms-toggle-wrap">
+                        <input type="hidden" name="is_active" value="0">
+                        <label class="cms-toggle">
+                            <input type="checkbox" name="is_active" id="f_is_active" value="1">
+                            <span class="cms-toggle-slider"></span>
+                        </label>
+                        <span class="cms-toggle-label" id="lbl_is_active">Off</span>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cms-form-actions">
+                <button type="button" class="cms-btn cms-btn-light" onclick="closeForm()">Cancel</button>
+                <button type="submit" class="cms-btn cms-btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    Save Record
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

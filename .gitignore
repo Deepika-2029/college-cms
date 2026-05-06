@@ -1,0 +1,43 @@
+# === Laravel / College CMS — .gitignore ===
+
+# Environment & secrets
+core/.env
+*.env
+
+# Install flags
+system/install.lock
+core/storage/app/.setup_done
+
+# Composer dependencies (will be installed during Docker build)
+core/vendor/
+
+# Laravel caches & generated files
+core/bootstrap/cache/*.php
+core/storage/framework/cache/*
+core/storage/framework/sessions/*
+core/storage/framework/views/*
+core/storage/logs/*
+core/storage/app/rate_limits/*
+core/storage/tmp/*
+
+# Node modules (if any)
+node_modules/
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# FTP sync state
+.ftp-deploy-sync-state.json
+.ftpquota
+
+# Large files & uploaded media (too big for GitHub)
+public_html/Portfolio.zip
+media/

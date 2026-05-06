@@ -1,0 +1,118 @@
+/* ═══════════════════════════════════════════════════════════════════
+   CMS Code Editor — Self-hosted styles
+   FILE: /assets/css/cms-editor.css
+   Replaces CodeMirror CDN + monokai theme CDN
+═══════════════════════════════════════════════════════════════════ */
+
+.cme-wrap {
+  position: relative;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', 'SF Mono', monospace;
+  font-size: 12.5px;
+  line-height: 1.6;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #2d2d3a;
+  background: #1a1a2a;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.cme-inner {
+  display: flex;
+  min-height: 200px;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.cme-gutter {
+  flex-shrink: 0;
+  min-width: 38px;
+  padding: 8px 0;
+  background: #13131f;
+  border-right: 1px solid #2d2d3a;
+  user-select: none;
+  text-align: right;
+}
+
+.cme-ln {
+  padding: 0 8px 0 4px;
+  color: #454568;
+  font-size: 11px;
+  line-height: 1.6;
+  min-height: 1em;
+}
+
+.cme-scroll {
+  flex: 1;
+  overflow: auto;
+  min-width: 0;
+}
+
+.cme-content {
+  padding: 8px 12px;
+  outline: none;
+  white-space: pre;
+  color: #f8f8f2;
+  caret-color: #f8f8f2;
+  min-height: 100%;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.cme-line {
+  min-height: 1em;
+  line-height: 1.6;
+}
+
+/* ── Monokai colour palette ─────────────────────────────────────── */
+.cme-theme-monokai .cme-comment    { color: #75715e; font-style: italic; }
+.cme-theme-monokai .cme-keyword    { color: #f92672; }
+.cme-theme-monokai .cme-def        { color: #a6e22e; }
+.cme-theme-monokai .cme-builtin    { color: #66d9e8; }
+.cme-theme-monokai .cme-string     { color: #e6db74; }
+.cme-theme-monokai .cme-number     { color: #ae81ff; }
+.cme-theme-monokai .cme-atom       { color: #ae81ff; }
+.cme-theme-monokai .cme-variable   { color: #f8f8f2; }
+.cme-theme-monokai .cme-property   { color: #a6e22e; }
+.cme-theme-monokai .cme-tag-name   { color: #f92672; }
+.cme-theme-monokai .cme-bracket    { color: #f8f8f2; }
+.cme-theme-monokai .cme-attr       { color: #a6e22e; }
+.cme-theme-monokai .cme-entity     { color: #ae81ff; }
+.cme-theme-monokai .cme-operator   { color: #f92672; }
+.cme-theme-monokai .cme-punctuation{ color: #f8f8f2; }
+
+/* ── Tomorrow Night (alt theme) ─────────────────────────────────── */
+.cme-theme-tomorrow .cme-comment    { color: #969896; font-style: italic; }
+.cme-theme-tomorrow .cme-keyword    { color: #cc6666; }
+.cme-theme-tomorrow .cme-def        { color: #b5bd68; }
+.cme-theme-tomorrow .cme-builtin    { color: #81a2be; }
+.cme-theme-tomorrow .cme-string     { color: #b5bd68; }
+.cme-theme-tomorrow .cme-number     { color: #de935f; }
+.cme-theme-tomorrow .cme-atom       { color: #de935f; }
+.cme-theme-tomorrow .cme-variable   { color: #c5c8c6; }
+.cme-theme-tomorrow .cme-property   { color: #81a2be; }
+.cme-theme-tomorrow .cme-tag-name   { color: #cc6666; }
+.cme-theme-tomorrow .cme-attr       { color: #b5bd68; }
+.cme-theme-tomorrow .cme-entity     { color: #de935f; }
+
+/* ── Read-only mode ─────────────────────────────────────────────── */
+.cme-readonly .cme-content {
+  cursor: default;
+  user-select: text;
+}
+.cme-readonly .cme-wrap { border-color: #1c1c2c; }
+
+/* ── Focus ring ─────────────────────────────────────────────────── */
+.cme-wrap:focus-within {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 2px rgba(108,99,255,.15);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────── */
+.cme-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+.cme-scroll::-webkit-scrollbar-track { background: transparent; }
+.cme-scroll::-webkit-scrollbar-thumb { background: #2d2d3a; border-radius: 3px; }
+.cme-scroll::-webkit-scrollbar-thumb:hover { background: #3d3d5a; }
+
+/* ── Selection ──────────────────────────────────────────────────── */
+.cme-content ::selection { background: rgba(108,99,255,.35); }

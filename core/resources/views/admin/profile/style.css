@@ -1,0 +1,32 @@
+.profile-shell{display:grid;grid-template-columns:260px 1fr;gap:1.5rem;align-items:start;}
+@media(max-width:900px){.profile-shell{grid-template-columns:1fr;}}
+
+/* Avatar card */
+.av-card{background:white;border:1.5px solid var(--text);border-radius:12px;overflow:hidden;}
+.av-cover{height:72px;background:linear-gradient(135deg,var(--accent),var(--accent));}
+.av-body{padding:0 1.25rem 1.25rem;text-align:center;}
+.av-img{width:76px;height:76px;border-radius:50%;border:3px solid white;margin:-38px auto .75rem;display:block;object-fit:cover;background:linear-gradient(135deg,var(--accent),var(--accent));color:white;font-size:1.8rem;font-weight:800;line-height:76px;}
+.av-name{font-weight:700;font-size:.95rem;color:var(--surface);}
+.av-email{font-size:.78rem;color:var(--text-3);margin-top:.1rem;word-break:break-all;}
+.av-badge{display:inline-block;margin:.6rem auto 0;}
+.av-stat{display:flex;justify-content:space-around;padding:.75rem 0;border-top:1px solid #f1f5f9;border-bottom:1px solid #f1f5f9;margin:.75rem 0;}
+.av-stat-n{font-size:1.2rem;font-weight:800;color:var(--surface);line-height:1;}
+.av-stat-l{font-size:.65rem;color:var(--text-3);font-weight:500;margin-top:.1rem;}
+
+/* Section cards */
+.p-section{background:white;border:1.5px solid var(--text);border-radius:12px;margin-bottom:1.1rem;}
+.p-section-head{padding:.875rem 1.25rem;border-bottom:1px solid #f1f5f9;display:flex;align-items:center;justify-content:space-between;}
+.p-section-title{font-weight:700;font-size:.88rem;color:var(--surface);display:flex;align-items:center;gap:.4rem;}
+.p-section-body{padding:1.1rem 1.25rem;}
+
+/* Permission badges */
+.perm-row{display:flex;align-items:center;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--text);font-size:.78rem;}
+.perm-row:last-child{border-bottom:none;}
+
+/* Login history */
+.lh-row{display:flex;align-items:center;gap:.5rem;padding:.4rem 0;border-bottom:1px solid var(--text);font-size:.78rem;}
+.lh-row:last-child{border-bottom:none;}
+
+/* Password strength */
+.pw-bar-wrap{height:4px;background:var(--text);border-radius:2px;margin-top:.35rem;overflow:hidden;}
+.pw-bar{height:100%;border-radius:2px;transition:width .25s,background .25s;width:0;}

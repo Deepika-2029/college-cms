@@ -1,0 +1,188 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# College CMS — public_html/.htaccess  v4.0  (Zero-PHP Static Architecture)
+#
+# ARCHITECTURE:
+#   Public visitors  → Apache serves pages/{slug}/index.html DIRECTLY (no PHP)
+#   Admin panel      → PHP/Laravel only for /admin/* routes
+#   Everything else  → Blocked at Apache level
+#
+# SECURITY LAYERS:
+#   1. Options -Indexes     : No directory listings anywhere
+#   2. Block core/system/   : Forbidden at rewrite level
+#   3. Block dotfiles/.env  : FilesMatch deny
+#   4. PHP execution blocked in media/, data/, pages/
+#   5. Admin-only PHP init  : Public pages never touch PHP
+# ═══════════════════════════════════════════════════════════════════════════
+
+Options -Indexes -MultiViews -ExecCGI
+
+# Default index order: Apache tries these in order. home.html is never used
+# but listed as ultimate fallback before index.php
+DirectoryIndex index.html index.php
+
+<IfModule mod_php8.c>
+    php_flag  display_errors  Off
+    php_flag  log_errors      On
+    php_value memory_limit    256M
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag  display_errors  Off
+    php_flag  log_errors      On
+</IfModule>
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# LAYER 1 — BLOCK SENSITIVE FILES (no-PHP failsafe, applied before rewrites)
+# ══════════════════════════════════════════════════════════════════════════
+<FilesMatch "(^\.env(\..*)?)$|^\.git|composer\.(json|lock)$|package(-lock)?\.json$|yarn\.lock$|artisan$|phpunit\.xml$|\.(bak|sql|log|sh|bash|orig|swp|tmp|phar)$">
+    Require all denied
+</FilesMatch>
+
+# Block all dotfiles
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# LAYER 2 — SECURITY RESPONSE HEADERS
+# ══════════════════════════════════════════════════════════════════════════
+<IfModule mod_headers.c>
+    Header always unset X-Powered-By
+    Header always unset Server
+    Header always unset X-Generator
+    Header always set X-Content-Type-Options   "nosniff"
+    Header always set X-Frame-Options          "SAMEORIGIN"
+    Header always set X-XSS-Protection         "1; mode=block"
+    Header always set Referrer-Policy          "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy       "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Header always set X-Permitted-Cross-Domain-Policies "none"
+
+    # Admin panel: no caching, no indexing
+    <If "%{REQUEST_URI} =~ m#^/admin#">
+        Header always set Cache-Control     "no-store, no-cache, must-revalidate, private"
+        Header always set Pragma            "no-cache"
+        Header always set X-Robots-Tag     "noindex, nofollow, noarchive, nosnippet"
+    </If>
+
+    # Public static pages: cache-friendly but short edge TTL so builder updates reflect fast
+    <If "%{REQUEST_URI} !~ m#^/admin#">
+        Header always set Cache-Control "public, max-age=0, s-maxage=30, must-revalidate"
+    </If>
+
+    # Media/download files: long cache + CORS for public downloads
+    <If "%{REQUEST_URI} =~ m#^/media/#">
+        Header always set Access-Control-Allow-Origin  "*"
+        Header always set Access-Control-Allow-Methods "GET, HEAD"
+        Header always set Cache-Control "public, max-age=86400"
+    </If>
+
+    # Versioned assets: 1-year immutable cache
+    <If "%{REQUEST_URI} =~ m#\.(css|js|woff2?|ttf|eot|svg|png|jpg|jpeg|webp|ico|pdf|doc|docx|xls|xlsx|ppt|pptx|zip|mp4|mov)$#">
+        Header always set Cache-Control "public, max-age=31536000, immutable"
+    </If>
+</IfModule>
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# LAYER 3 — HTTPS ENFORCEMENT
+# ══════════════════════════════════════════════════════════════════════════
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
+    RewriteCond %{HTTP_HOST} !^127\.0\.0\.1
+    RewriteCond %{REMOTE_ADDR} !^127\.0\.0\.1
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# LAYER 4 — HARD BLOCK: Private Folders (403 at Apache — PHP never runs)
+# ══════════════════════════════════════════════════════════════════════════
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # ── Block Laravel core and internal system folders ──────────────────
+    RewriteRule ^(core|system|data)/? - [F,L,NC]
+
+    # ── Block direct browsing of frontend_public_pages/ folder itself ───────────────────
+    # Visitors can only get /slug which maps to frontend_public_pages/{slug}/index.html
+    # They must NEVER be able to list or browse /frontend_public_pages/ directly
+    RewriteRule ^frontend_public_pages/?$ - [F,L,NC]
+    RewriteRule ^frontend_public_pages/\.  - [F,L,NC]
+
+    # ── Block PHP execution in media/, data/, frontend_public_pages/ ────────────────────
+    RewriteCond %{REQUEST_URI} ^/(media|data|frontend_public_pages)/ [NC]
+    RewriteRule \.(php[0-9]?|phtml|phar|cgi|pl|py|rb|sh|bash|exe|asp|aspx|jsp|cfm)$ - [F,L,NC]
+
+    # ── Block admin-vendor direct access ────────────────────────────────
+    RewriteRule ^admin-vendor/ - [F,L,NC]
+</IfModule>
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# LAYER 5 — ZERO-PHP STATIC PAGE SERVING  ← Core of the new architecture
+#
+# For public visitors, Apache reads pages/.home-slug and serves the HTML
+# file DIRECTLY using mod_rewrite internal redirects.
+# PHP is NEVER invoked for public page requests.
+# ══════════════════════════════════════════════════════════════════════════
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # ── Serve real static files directly (css, js, images, fonts) ───────
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # ── Serve real asset directories directly ────────────────────────────
+    RewriteCond %{REQUEST_URI} ^/(assets|media|images)/ [NC]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # ── ADMIN PANEL: Route /admin/* to PHP/Laravel ───────────────────────
+    # This is the ONLY path that reaches PHP for public-facing routing.
+    # All admin routes are behind Laravel auth middleware.
+    RewriteRule ^admin(/|$) index.php [L]
+
+    # ── API ROUTES: Allow JSON API calls through PHP ─────────────────────
+    RewriteRule ^api/ index.php [L]
+
+    # ── ROOT REQUEST: Serve the home page static HTML directly ──────────────
+    # We use a special rewrite map file (frontend_public_pages/.home-slug) written by CMS.
+    # If frontend_public_pages/home/index.html exists, serve it. Apache does NOT call PHP.
+    RewriteCond %{REQUEST_URI} ^/?$
+    RewriteCond %{DOCUMENT_ROOT}/frontend_public_pages/home/index.html -f
+    RewriteRule ^ frontend_public_pages/home/index.html [L]
+
+    # ── SLUG REQUESTS: /about → frontend_public_pages/about/index.html (zero PHP) ──
+    # Sanitize: only allow alphanumeric/hyphen/underscore slugs (JAIL)
+    # This prevents ANY path traversal like /../core/ etc.
+    RewriteCond %{REQUEST_URI} ^/([a-zA-Z0-9_-]+)/?$
+    RewriteCond %{DOCUMENT_ROOT}/frontend_public_pages/%1/index.html -f
+    RewriteRule ^([a-zA-Z0-9_-]+)/?$ frontend_public_pages/$1/index.html [L]
+
+    # ── SETUP WIZARD: Allow setup.php if it still exists ───────────────────
+    RewriteRule ^setup\.php$ setup.php [L]
+
+    # ── 404 FALLBACK: Pass unknown routes to PHP for proper 404 page ─────────
+    # This is the only other time PHP runs for a visitor.
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# LAYER 6 — PHP EXECUTION BLOCKED IN admin-vendor/
+# (double protection — these are pre-built minified assets only)
+# ══════════════════════════════════════════════════════════════════════════
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^admin-vendor/.*\.php$ - [F,L,NC]
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “alt-php84” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-alt-php84 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

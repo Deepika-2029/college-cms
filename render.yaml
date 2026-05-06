@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: college-cms
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_URL
+        value: https://college-cms.onrender.com   # Update with your actual Render URL
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        sync: false   # Set in Render dashboard
+      - key: DB_PORT
+        value: 3306
+      - key: DB_DATABASE
+        sync: false   # Set in Render dashboard
+      - key: DB_USERNAME
+        sync: false   # Set in Render dashboard
+      - key: DB_PASSWORD
+        sync: false   # Set in Render dashboard
+      - key: CACHE_STORE
+        value: file
+      - key: SESSION_DRIVER
+        value: file
+      - key: MEDIA_DRIVER
+        value: local

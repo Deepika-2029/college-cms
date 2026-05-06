@@ -1,0 +1,64 @@
+{
+    "table": "carousel",
+    "label": "Carousel",
+    "ui_type": "list",
+    "drag_order": [
+        "id",
+        "title",
+        "image_url",
+        "is_active",
+        "created_at",
+        "updated_at"
+    ],
+    "columns": [
+        {
+            "name": "id",
+            "label": "Id",
+            "field_type": "system",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": false
+        },
+        {
+            "name": "title",
+            "label": "Title",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "image_url",
+            "label": "Image Url",
+            "field_type": "image",
+            "show_in_list": true,
+            "searchable": false,
+            "editable": true
+        },
+        {
+            "name": "is_active",
+            "label": "Is Active",
+            "field_type": "boolean",
+            "show_in_list": true,
+            "searchable": false,
+            "editable": true
+        },
+        {
+            "name": "created_at",
+            "label": "Created At",
+            "field_type": "system",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": false
+        },
+        {
+            "name": "updated_at",
+            "label": "Updated At",
+            "field_type": "system",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": false
+        }
+    ],
+    "created_at": "2026-05-05 06:06:02"
+}

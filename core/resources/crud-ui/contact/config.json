@@ -1,0 +1,64 @@
+{
+    "table": "contact",
+    "label": "Contact",
+    "ui_type": "list",
+    "drag_order": [
+        "id",
+        "name",
+        "email",
+        "subject",
+        "message",
+        "created_at"
+    ],
+    "columns": [
+        {
+            "name": "id",
+            "label": "Id",
+            "field_type": "system",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": false
+        },
+        {
+            "name": "name",
+            "label": "Name",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "email",
+            "label": "Email",
+            "field_type": "email",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "subject",
+            "label": "Subject",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "message",
+            "label": "Message",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "created_at",
+            "label": "Created At",
+            "field_type": "system",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": false
+        }
+    ],
+    "created_at": "2026-05-05 06:06:05"
+}

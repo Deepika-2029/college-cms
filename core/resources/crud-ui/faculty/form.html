@@ -1,0 +1,83 @@
+<!-- Auto-generated Form Template for: faculty -->
+<div class="cms-ui-wrapper cms-fade-in" id="cms-faculty-form" style="display:none;">
+    <div class="cms-ui-header">
+        <div class="cms-ui-title-group">
+            <h2 id="form-title">Create New Faculty</h2>
+            <p>Fill out the details below to add or update a record.</p>
+        </div>
+        <button class="cms-btn cms-btn-ghost" onclick="closeForm()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back to List
+        </button>
+    </div>
+    <div class="cms-glass-card">
+        <form class="cms-modern-form" onsubmit="handleFormSubmit(event)">
+            <div class="cms-form-grid">
+
+                <div class="cms-form-group">
+                    <label for="f_name">Name</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="name" id="f_name" class="cms-form-control" placeholder="Enter Name...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_designation">Designation</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="designation" id="f_designation" class="cms-form-control" placeholder="Enter Designation...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_department">Department</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="department" id="f_department" class="cms-form-control" placeholder="Enter Department...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_qualification">Qualification</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="qualification" id="f_qualification" class="cms-form-control" placeholder="Enter Qualification...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_experience">Experience</label>
+                    <div class="cms-input-wrapper">
+                    <input type="text" name="experience" id="f_experience" class="cms-form-control" placeholder="Enter Experience...">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_email">Email</label>
+                    <div class="cms-input-wrapper">
+                    <input type="email" name="email" id="f_email" class="cms-form-control" placeholder="name@example.com">
+                    </div>
+                </div>
+
+                <div class="cms-form-group">
+                    <label for="f_photo">Photo</label>
+                    <div class="cms-input-wrapper">
+                    <div class="cms-media-field" data-col="photo" data-accept="image/*">
+                        <div class="cms-media-preview" id="prev_photo"></div>
+                        <div class="cms-media-actions">
+                            <button type="button" class="cms-btn cms-btn-sm" onclick="openMediaPicker('photo','image')">📷 Upload / Pick</button>
+                            <button type="button" class="cms-btn cms-btn-sm cms-btn-ghost" onclick="addMediaUrl('photo')">🔗 Add URL</button>
+                        </div>
+                        <input type="hidden" name="photo" id="f_photo">
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cms-form-actions">
+                <button type="button" class="cms-btn cms-btn-light" onclick="closeForm()">Cancel</button>
+                <button type="submit" class="cms-btn cms-btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    Save Record
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

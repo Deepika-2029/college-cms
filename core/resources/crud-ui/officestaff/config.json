@@ -1,0 +1,64 @@
+{
+    "table": "officestaff",
+    "label": "Officestaff",
+    "ui_type": "list",
+    "drag_order": [
+        "id",
+        "name",
+        "designation",
+        "department",
+        "experience",
+        "email"
+    ],
+    "columns": [
+        {
+            "name": "id",
+            "label": "Id",
+            "field_type": "system",
+            "show_in_list": false,
+            "searchable": false,
+            "editable": false
+        },
+        {
+            "name": "name",
+            "label": "Name",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "designation",
+            "label": "Designation",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "department",
+            "label": "Department",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "experience",
+            "label": "Experience",
+            "field_type": "text",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        },
+        {
+            "name": "email",
+            "label": "Email",
+            "field_type": "email",
+            "show_in_list": true,
+            "searchable": true,
+            "editable": true
+        }
+    ],
+    "created_at": "2026-05-05 06:06:04"
+}
